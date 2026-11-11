@@ -1,0 +1,2501 @@
+:root {
+    --bg: #07101f;
+    --panel: #0d1b32;
+    --panel-soft: #142746;
+    --card: #10213b;
+    --line: rgba(88, 151, 255, 0.38);
+    --red: #d52237;
+    --red-dark: #174e91;
+    --red-light: #f9bfd0;
+    --text: #e8f0ff;
+    --muted: #b6c8e8;
+    --shadow: rgba(20, 72, 145, 0.45);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 8%;
+    background: rgba(7, 16, 31, 0.96);
+    border-bottom: 1px solid var(--line);
+    backdrop-filter: blur(8px);
+}
+
+.logo {
+    font-size: 2rem;
+    letter-spacing: 0.12em;
+    font-weight: 800;
+    color: #fff;
+}
+
+.logo span {
+    color: var(--red);
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    flex-wrap: wrap;
+}
+
+.nav a {
+    color: var(--muted);
+    font-size: 0.95rem;
+    transition: color 0.25s ease;
+}
+
+.nav a:hover {
+    color: #fff;
+}
+
+.hero {
+    display: grid;
+    grid-template-columns: 1.3fr 0.7fr;
+    gap: 30px;
+    align-items: center;
+    min-height: 620px;
+    padding: 80px 8%;
+    background:
+        linear-gradient(110deg, rgba(8, 24, 53, 0.78), rgba(85, 14, 44, 0.48)),
+        url("../images/molecule-hero.jpg.jpeg") center/cover no-repeat;
+    border-bottom: 1px solid var(--line);
+}
+
+.hero-content {
+    max-width: 720px;
+}
+
+.eyebrow {
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--red-light);
+    font-size: 0.78rem;
+    font-weight: 700;
+    margin-bottom: 18px;
+}
+
+.hero h1 {
+    font-size: clamp(2.5rem, 4vw, 5rem);
+    line-height: 1.08;
+    margin-bottom: 20px;
+    font-weight: 800;
+}
+
+.lead {
+    font-size: 1.08rem;
+    color: #d8e7ff;
+    max-width: 620px;
+    margin-bottom: 30px;
+}
+
+.cta-row {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 52px;
+    padding: 0 24px;
+    border-radius: 8px;
+    border: 1px solid var(--line);
+    font-weight: 700;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 28px rgba(201, 35, 60, 0.28);
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--red), var(--red-dark));
+    color: #fff;
+}
+
+.btn-secondary {
+    background: transparent;
+    color: var(--text);
+}
+
+.hero-visual {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 320px;
+}
+
+.molecule-canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    pointer-events: none;
+}
+
+.page-particles-canvas {
+    position: fixed;
+    inset: 0;
+    z-index: 5;
+    width: 100%;
+    height: 100%;
+    opacity: 0.82;
+    pointer-events: none;
+    mix-blend-mode: screen;
+}
+
+.section {
+    padding: 82px 8%;
+}
+
+.section.alt {
+    background: linear-gradient(110deg, #0d1c37, #102d54);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+}
+
+.section-heading {
+    margin-bottom: 32px;
+}
+
+.section-heading h2 {
+    font-size: clamp(2rem, 3vw, 3rem);
+    line-height: 1.2;
+}
+
+.resource-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+}
+
+.resource-card {
+    background: linear-gradient(145deg, rgba(20, 48, 87, 0.94), rgba(10, 25, 49, 0.96));
+    border: 1px solid rgba(92, 151, 255, 0.4);
+    border-radius: 16px;
+    padding: 28px 22px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.18);
+}
+
+.resource-card span {
+    font-size: 2.4rem;
+    display: block;
+    margin-bottom: 12px;
+}
+
+.resource-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #ffb8c5;
+}
+
+.resource-card p {
+    color: var(--muted);
+}
+
+.grade-grid {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.grade-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 210px;
+    padding: 24px 18px;
+    border-radius: 16px;
+    background: linear-gradient(145deg, #183d70, #101d39 65%, #48132d);
+    border: 1px solid var(--line);
+    transition: transform 0.25s ease, border-color 0.25s ease;
+}
+
+.grade-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(255, 138, 154, 0.8);
+}
+
+.grade-card span {
+    font-size: 3rem;
+    font-weight: 800;
+    color: #b8d7ff;
+    margin-bottom: 12px;
+}
+
+.grade-card strong {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+}
+
+.grade-card small {
+    color: var(--muted);
+    font-size: 0.88rem;
+    line-height: 1.5;
+}
+
+.intro {
+    background: linear-gradient(110deg, #0d1b34, #102b50);
+}
+
+.narrow {
+    max-width: 760px;
+}
+
+.intro-text {
+    max-width: 900px;
+    font-size: 1.06rem;
+    color: var(--muted);
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 20px;
+    margin-top: 26px;
+}
+
+.info-card {
+    background: linear-gradient(145deg, rgba(22, 50, 90, 0.96), rgba(10, 25, 48, 0.97));
+    border: 1px solid rgba(91, 147, 245, 0.35);
+    border-radius: 18px;
+    padding: 24px 20px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+}
+
+.info-card .icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 54px;
+    height: 54px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, rgba(213, 34, 55, 0.2), rgba(54, 128, 226, 0.24));
+    font-size: 1.8rem;
+    margin-bottom: 14px;
+}
+
+.info-card h3 {
+    margin-bottom: 10px;
+    font-size: 1.35rem;
+    color: #d6e5ff;
+}
+
+.info-card p {
+    color: var(--muted);
+    line-height: 1.75;
+}
+
+.step-number {
+    display: inline-block;
+    margin-bottom: 12px;
+    font-size: 0.78rem;
+    letter-spacing: 0.14em;
+    font-weight: 800;
+    color: var(--red-light);
+}
+
+.steps-grid {
+    margin-top: 18px;
+}
+
+.step-card {
+    min-height: 220px;
+}
+
+.cta-banner {
+    padding-top: 10px;
+    padding-bottom: 28px;
+}
+
+.cta-banner-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 28px 30px;
+    border-radius: 24px;
+    background: linear-gradient(115deg, rgba(104, 20, 48, 0.95), rgba(21, 57, 106, 0.98) 55%, rgba(10, 24, 47, 0.98));
+    border: 1px solid rgba(91, 147, 245, 0.42);
+    box-shadow: 0 18px 34px rgba(0, 0, 0, 0.2);
+}
+
+.cta-banner-inner h2 {
+    font-size: clamp(1.5rem, 2.5vw, 2.4rem);
+    line-height: 1.25;
+}
+
+.page-shell {
+    padding: 52px 8% 80px;
+}
+
+.class-hero {
+    padding: 42px 0 22px;
+    border-bottom: 1px solid var(--line);
+    margin-bottom: 26px;
+}
+
+.class-hero h1 {
+    font-size: clamp(2.5rem, 4vw, 4rem);
+    margin-bottom: 18px;
+}
+
+.page-description {
+    max-width: 760px;
+    font-size: 1.02rem;
+    color: var(--muted);
+}
+
+.search-panel {
+    margin: 28px 0 38px;
+}
+
+.search-panel label {
+    display: block;
+    margin-bottom: 10px;
+    color: var(--red-light);
+    font-weight: 600;
+}
+
+.search-panel input {
+    width: min(100%, 620px);
+    padding: 16px 18px;
+    background: rgba(14, 31, 57, 0.94);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    color: var(--text);
+    font-size: 1rem;
+    outline: none;
+}
+
+.search-panel input:focus {
+    border-color: rgba(255, 165, 181, 0.8);
+    box-shadow: 0 0 0 3px rgba(58, 135, 235, 0.22);
+}
+
+.content-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+}
+
+.content-grid.grades-list {
+    grid-template-columns: 1fr;
+}
+
+.topic-card {
+    background: linear-gradient(145deg, rgba(20, 45, 80, 0.97), rgba(9, 21, 41, 0.98));
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    padding: 24px 22px;
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.18);
+}
+
+.grade-topic-card {
+    padding-top: 24px;
+}
+
+.grade-chapters {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 22px;
+}
+
+.grade-chapter h4 {
+    margin-bottom: 10px;
+    color: #ffd4dc;
+}
+
+.grade-topic-card .grade-chapter ul {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.content-grid.chapter-grid {
+    grid-template-columns: 1fr;
+}
+
+.grade-topic-card ul,
+.chapter-card ul {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.grade-topic-card li + li,
+.chapter-card li + li {
+    margin-top: 0;
+}
+
+.grade-topic-card li a,
+.chapter-card li a {
+    display: block;
+    padding: 12px 14px;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+.grade-topic-card li a:hover,
+.grade-topic-card li a:focus-visible,
+.chapter-card li a:hover,
+.chapter-card li a:focus-visible {
+    color: var(--text);
+    border-color: rgba(255, 148, 161, 0.8);
+    background: rgba(255, 148, 161, 0.08);
+}
+
+.topic-card .icon {
+    font-size: 2.4rem;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+.topic-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 14px;
+    color: #ffd4db;
+}
+
+.topic-card p,
+.topic-card li,
+.topic-card td,
+.topic-card th {
+    color: var(--muted);
+}
+
+.topic-card ul,
+.topic-card ol {
+    padding-left: 18px;
+    margin-top: 12px;
+}
+
+.topic-card li + li {
+    margin-top: 8px;
+}
+
+.topic-card table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 14px;
+}
+
+.topic-card th,
+.topic-card td {
+    border: 1px solid rgba(255, 137, 151, 0.3);
+    padding: 10px 12px;
+    text-align: left;
+}
+
+.source-page {
+    padding: 60px 8% 80px;
+}
+
+.source-list {
+    list-style: none;
+    display: grid;
+    gap: 18px;
+    margin-top: 20px;
+}
+
+.source-list li {
+    padding: 18px 20px;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: rgba(15, 34, 61, 0.9);
+}
+
+.source-list a {
+    color: #ffd3db;
+}
+
+.footer {
+    text-align: center;
+    padding: 26px 20px 36px;
+    color: #d6a9af;
+    border-top: 1px solid rgba(255, 123, 138, 0.25);
+    background: #081426;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.topic-page-shell {
+    padding-top: 36px;
+}
+
+.topic-detail-header {
+    padding: 12px 0 20px;
+    border-bottom: 1px solid var(--line);
+    margin-bottom: 22px;
+}
+
+.topic-detail-header h1 {
+    font-size: clamp(1.05rem, 1.8vw, 1.25rem);
+    line-height: 1.5;
+    margin-top: 6px;
+}
+
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 18px;
+    color: var(--red-light);
+    font-weight: 600;
+}
+
+.topic-detail-summary {
+    margin-bottom: 20px;
+    color: var(--muted);
+    font-size: 1.02rem;
+}
+
+.detail-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 10px 0 18px;
+    border-bottom: 1px solid rgba(255, 116, 133, 0.25);
+    padding-bottom: 12px;
+}
+
+.detail-tab {
+    padding: 10px 14px;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 126, 144, 0.35);
+    background: transparent;
+    color: #f7dfe4;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.detail-tab.active {
+    background: linear-gradient(135deg, var(--red), var(--red-dark));
+    border-color: transparent;
+}
+
+.detail-panel {
+    display: none;
+    background: linear-gradient(145deg, rgba(20, 45, 80, 0.97), rgba(9, 21, 41, 0.98));
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    padding: 26px 22px;
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.18);
+}
+
+.detail-panel.active {
+    display: block;
+}
+
+.detail-panel h3 {
+    margin-bottom: 12px;
+    color: #ffd9e1;
+    font-size: 1.5rem;
+}
+
+.presentation-viewer {
+    width: min(100%, 900px);
+    margin: 20px auto 0;
+}
+
+.task-image-viewer {
+    width: min(100%, 1100px);
+}
+
+.task-image-viewer .presentation-slide-frame {
+    aspect-ratio: auto;
+    min-height: 360px;
+}
+
+.task-image-viewer .presentation-slide-image {
+    max-height: 72vh;
+}
+
+.task-image-viewer:fullscreen .presentation-slide-image {
+    max-height: none;
+}
+
+.presentation-viewer:fullscreen {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 20px;
+    background: #0b1a31;
+}
+
+.presentation-viewer:fullscreen .presentation-slide-frame {
+    flex: 1;
+    min-height: 0;
+    aspect-ratio: auto;
+    border: 0;
+    border-radius: 0;
+}
+
+.presentation-viewer:fullscreen .presentation-controls {
+    flex: 0 0 auto;
+    justify-content: center;
+}
+
+.task-image-viewer:fullscreen .presentation-slide-frame {
+    min-height: 0;
+}
+
+.presentation-slide-frame {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    display: grid;
+    place-items: center;
+    border: 1px solid rgba(255, 137, 151, 0.35);
+    border-radius: 12px;
+    background: #0b1a31;
+    scrollbar-color: rgba(215, 178, 183, 0.4) transparent;
+}
+
+.presentation-slide-image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transform: scale(var(--slide-zoom, 1));
+    transform-origin: center;
+    transition: transform 0.2s ease;
+}
+
+.presentation-controls,
+.presentation-navigation,
+.presentation-zoom {
+    display: flex;
+    align-items: center;
+}
+
+.presentation-controls {
+    justify-content: space-between;
+    gap: 16px;
+    padding: 14px 4px 0;
+}
+
+.presentation-navigation,
+.presentation-zoom {
+    gap: 10px;
+}
+
+.presentation-control,
+.presentation-reset {
+    min-width: 40px;
+    min-height: 40px;
+    border: 1px solid rgba(255, 126, 144, 0.45);
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.04);
+    color: var(--text);
+    font: inherit;
+    font-size: 1.15rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.presentation-control:hover:not(:disabled),
+.presentation-reset:hover {
+    background: linear-gradient(115deg, rgba(213, 34, 55, 0.34), rgba(45, 116, 210, 0.38));
+    border-color: rgba(255, 165, 181, 0.8);
+}
+
+.presentation-control:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.presentation-counter,
+.presentation-zoom-level {
+    min-width: 52px;
+    color: var(--muted);
+    text-align: center;
+    font-variant-numeric: tabular-nums;
+}
+
+.presentation-reset {
+    padding: 0 12px;
+    font-size: 0.86rem;
+    font-weight: 600;
+}
+
+.presentation-fullscreen-button {
+    display: inline-grid;
+    place-items: center;
+    width: 40px;
+    min-width: 40px;
+    padding: 0;
+}
+
+.fullscreen-icon {
+    width: 22px;
+    height: 22px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.fullscreen-exit-icon,
+.presentation-fullscreen-button.is-fullscreen .fullscreen-enter-icon {
+    display: none;
+}
+
+.presentation-fullscreen-button.is-fullscreen .fullscreen-exit-icon {
+    display: block;
+}
+
+.detail-panel p,
+.detail-panel li {
+    color: var(--muted);
+    line-height: 1.9;
+}
+
+.detail-panel ul,
+.detail-panel ol {
+    margin-left: 18px;
+    margin-top: 12px;
+}
+
+.lab-entry {
+    margin-top: 14px;
+}
+
+.lab-entry p {
+    margin-bottom: 16px;
+}
+
+.lab-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 10000;
+    display: none;
+    background: #07101f;
+    color: var(--text);
+}
+
+.lab-overlay.is-open {
+    display: flex;
+}
+
+.lab-overlay:fullscreen {
+    width: 100vw;
+    height: 100vh;
+}
+
+.lab-window {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+    background: radial-gradient(ellipse at 70% 45%, #193c70, #0b162b 62%, #351128);
+}
+
+.lab-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    min-height: 92px;
+    padding: 16px 28px;
+    border-bottom: 1px solid var(--line);
+}
+
+.lab-header .eyebrow {
+    margin: 0 0 4px;
+}
+
+.lab-header h2 {
+    font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+    line-height: 1.25;
+}
+
+.lab-close {
+    flex: 0 0 44px;
+    width: 44px;
+    height: 44px;
+    border: 1px solid rgba(255, 136, 152, 0.5);
+    border-radius: 50%;
+    background: transparent;
+    color: #fff;
+    font-size: 1.8rem;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.lab-layout {
+    display: grid;
+    grid-template-columns: minmax(260px, 320px) minmax(0, 1fr);
+    flex: 1;
+    min-height: 0;
+}
+
+.lab-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    overflow-y: auto;
+    padding: 24px;
+    border-right: 1px solid rgba(78, 139, 235, 0.36);
+    background: rgba(8, 20, 39, 0.9);
+    scrollbar-color: rgba(215, 178, 183, 0.28) transparent;
+    scrollbar-width: thin;
+}
+
+#standardLabControls {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.molar-mass-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+}
+
+.molar-mass-controls h3 {
+    color: #ffd2da;
+    font-size: 1.05rem;
+}
+
+.molar-mass-gas,
+.molar-mass-fields label {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    color: #f4dce0;
+    font-size: 0.76rem;
+    line-height: 1.35;
+}
+
+.molar-mass-gas select,
+.molar-mass-fields input {
+    width: 100%;
+    min-width: 0;
+    min-height: 35px;
+    padding: 5px 7px;
+    border: 1px solid rgba(255, 136, 152, 0.4);
+    border-radius: 6px;
+    background: #142743;
+    color: #fff;
+    font: inherit;
+    font-size: 0.84rem;
+}
+
+.molar-mass-fields {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+}
+
+.molar-mass-equation {
+    color: #d3ddf2;
+    font-size: 0.76rem;
+    line-height: 1.45;
+}
+
+.molar-mass-observation {
+    margin-top: 0;
+    padding: 10px;
+    border-left-color: #4a91ed;
+    background: linear-gradient(125deg, rgba(126, 23, 58, 0.3), rgba(25, 68, 128, 0.42));
+}
+
+.molar-mass-observation h3 {
+    color: #c1dcff;
+}
+
+.molar-mass-observation p {
+    color: #e4edff;
+    font-size: 0.79rem;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+}
+
+.isothermal-current-state {
+    display: grid;
+    gap: 5px;
+    padding: 10px;
+    border-left: 3px solid #4a91ed;
+    border-radius: 6px;
+    background: rgba(25, 68, 128, 0.3);
+}
+
+.isothermal-current-state h3 {
+    color: #c1dcff;
+    font-size: 0.9rem;
+}
+
+.isothermal-current-state p {
+    color: #e4edff;
+    font-size: 0.78rem;
+    line-height: 1.45;
+    overflow-wrap: anywhere;
+}
+
+.isothermal-volume-control {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+    color: #f4dce0;
+    font-size: 0.8rem;
+}
+
+.isothermal-volume-control output {
+    color: #b7f4ce;
+    font-weight: 700;
+}
+
+#isothermalVolume {
+    width: 100%;
+    accent-color: #4a91ed;
+}
+
+.ice-lab-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.ice-lab-controls h3 {
+    color: #ffd2da;
+    font-size: 1.05rem;
+}
+
+.ice-lab-fields {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+}
+
+.ice-lab-fields label {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    color: #f4dce0;
+    font-size: 0.76rem;
+    line-height: 1.35;
+}
+
+.ice-lab-fields input {
+    width: 100%;
+    min-width: 0;
+    min-height: 36px;
+    padding: 5px 7px;
+    border: 1px solid rgba(255, 136, 152, 0.4);
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.08);
+    color: #fff;
+    font: inherit;
+    font-size: 0.88rem;
+}
+
+.ice-lab-constants,
+.ice-lab-equation {
+    color: var(--muted);
+    font-size: 0.76rem;
+    line-height: 1.45;
+}
+
+.ice-lab-actions {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 7px;
+}
+
+.ice-lab-actions .btn,
+.ice-lab-actions .lab-reset {
+    min-width: 0;
+    min-height: 38px;
+    padding: 5px;
+    font-size: 0.82rem;
+}
+
+.ice-lab-actions button:disabled {
+    cursor: not-allowed;
+    opacity: 0.55;
+}
+
+.ice-lab-observation {
+    margin-top: 0;
+    padding: 10px;
+}
+
+.ice-lab-observation p {
+    font-size: 0.81rem;
+    line-height: 1.45;
+}
+
+.lab-window.is-ice-lab {
+    background: radial-gradient(ellipse at 70% 45%, #193c70, #0b162b 62%, #351128);
+    color: #e8f0ff;
+}
+
+.is-ice-lab .lab-header {
+    border-bottom-color: rgba(88, 151, 255, 0.38);
+}
+
+.is-ice-lab .lab-header h2 {
+    color: #b9d8ff;
+}
+
+.is-ice-lab .lab-header .eyebrow {
+    color: #93b7ec;
+}
+
+.is-ice-lab .lab-close {
+    border-color: #6195dc;
+    color: #e8f0ff;
+}
+
+.is-ice-lab .lab-controls {
+    border-right-color: rgba(88, 151, 255, 0.36);
+    background: rgba(8, 20, 39, 0.92);
+}
+
+.is-ice-lab .ice-lab-controls h3 {
+    color: #b9d8ff;
+}
+
+.is-ice-lab .ice-lab-fields label {
+    color: #d7e6ff;
+}
+
+.is-ice-lab .ice-lab-fields input {
+    border-color: #426fa9;
+    background: #102747;
+    color: #f2f6ff;
+}
+
+.is-ice-lab .ice-lab-constants,
+.is-ice-lab .ice-lab-equation {
+    color: #a9bfdf;
+}
+
+.is-ice-lab .ice-lab-observation {
+    border-left-color: #4a91ed;
+    background: linear-gradient(125deg, rgba(126, 23, 58, 0.3), rgba(25, 68, 128, 0.42));
+}
+
+.is-ice-lab .ice-lab-observation h3 {
+    color: #c1dcff;
+}
+
+.is-ice-lab .ice-lab-observation p,
+.is-ice-lab .lab-instructions {
+    color: #b6c8e8;
+}
+
+.is-ice-lab .ice-lab-observation p + p {
+    color: #e4edff;
+}
+
+.is-ice-lab .lab-stage {
+    background: #0b1a31;
+}
+
+.diffusion-lab-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.diffusion-lab-controls h3 {
+    color: #c5dcff;
+    font-size: 1.08rem;
+}
+
+.diffusion-lab-fields {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 4px 10px;
+}
+
+.diffusion-lab-fields label {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+    color: #d7e6ff;
+    font-size: 0.78rem;
+    line-height: 1.4;
+}
+
+.diffusion-lab-fields output {
+    flex: 0 0 auto;
+    color: #b8d7ff;
+    font-variant-numeric: tabular-nums;
+}
+
+.diffusion-lab-fields input {
+    grid-column: 1 / -1;
+    width: 100%;
+    margin-bottom: 5px;
+    accent-color: #4aa9ff;
+}
+
+.diffusion-lab-fields #diffusionRedCount {
+    accent-color: #ff526e;
+}
+
+.diffusion-statistics {
+    display: grid;
+    gap: 5px;
+    padding: 10px;
+    border: 1px solid rgba(93, 150, 236, 0.3);
+    border-radius: 9px;
+    background: linear-gradient(125deg, rgba(126, 23, 58, 0.2), rgba(25, 68, 128, 0.28));
+}
+
+.diffusion-statistics h4 {
+    margin-bottom: 2px;
+    color: #c5dcff;
+    font-size: 0.92rem;
+}
+
+.diffusion-statistics p {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 6px;
+    color: #ccdaf1;
+    font-size: 0.72rem;
+    line-height: 1.35;
+}
+
+.diffusion-statistics output {
+    color: #fff;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+}
+
+.diffusion-lab-timer {
+    color: #d8e6ff;
+    font-size: 1.35rem;
+    font-variant-numeric: tabular-nums;
+    text-align: center;
+}
+
+.diffusion-lab-controls .lab-instructions {
+    margin-top: 0;
+    font-size: 0.8rem;
+}
+
+.lab-window.is-diffusion-lab {
+    background: radial-gradient(ellipse at 70% 45%, #193c70, #0b162b 62%, #351128);
+}
+
+.is-diffusion-lab .lab-controls {
+    border-right-color: rgba(88, 151, 255, 0.36);
+    background: rgba(8, 20, 39, 0.92);
+}
+
+.is-diffusion-lab .lab-stage {
+    background: #0b1a31;
+}
+
+.is-diffusion-lab .lab-header h2 {
+    color: #b9d8ff;
+}
+
+.is-diffusion-lab .lab-header .eyebrow {
+    color: #93b7ec;
+}
+
+.is-diffusion-lab .lab-close {
+    border-color: #6195dc;
+    color: #e8f0ff;
+}
+
+.brownian-lab-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+}
+
+.brownian-lab-controls h3 {
+    color: #c5dcff;
+    font-size: 0.96rem;
+}
+
+.brownian-lab-fields {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 3px 10px;
+}
+
+.brownian-lab-fields label {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+    color: #d7e6ff;
+    font-size: 0.75rem;
+    line-height: 1.35;
+}
+
+.brownian-lab-fields output {
+    flex: 0 0 auto;
+    color: #b8d7ff;
+    font-variant-numeric: tabular-nums;
+}
+
+.brownian-lab-fields input {
+    grid-column: 1 / -1;
+    width: 100%;
+    margin-bottom: 4px;
+    accent-color: #4aa9ff;
+}
+
+.brownian-lab-fields #brownianMoleculeSize,
+.brownian-lab-fields #brownianParticleSize,
+.brownian-lab-fields #brownianParticleMass,
+.brownian-lab-fields #brownianTrailLength {
+    accent-color: #ff6b85;
+}
+
+.brownian-statistics {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 5px 10px;
+    padding: 9px 10px;
+    border: 1px solid rgba(93, 150, 236, 0.3);
+    border-radius: 9px;
+    background: linear-gradient(125deg, rgba(126, 23, 58, 0.2), rgba(25, 68, 128, 0.28));
+}
+
+.brownian-statistics h4 {
+    grid-column: 1 / -1;
+    color: #c5dcff;
+    font-size: 0.92rem;
+}
+
+.brownian-statistics p {
+    display: flex;
+    justify-content: space-between;
+    gap: 6px;
+    color: #ccdaf1;
+    font-size: 0.72rem;
+}
+
+.brownian-statistics output {
+    color: #fff;
+    font-variant-numeric: tabular-nums;
+}
+
+.brownian-lab-controls .lab-instructions {
+    margin-top: 0;
+    font-size: 0.78rem;
+}
+
+.lab-window.is-brownian-lab {
+    background: radial-gradient(ellipse at 70% 45%, #193c70, #0b162b 62%, #351128);
+}
+
+.is-brownian-lab .lab-layout {
+    grid-template-columns: minmax(270px, 340px) minmax(0, 1fr);
+}
+
+.is-brownian-lab .lab-controls {
+    border-right-color: rgba(88, 151, 255, 0.36);
+    background: rgba(8, 20, 39, 0.92);
+}
+
+.is-brownian-lab .lab-stage {
+    display: grid;
+    grid-template-rows: minmax(0, 1fr) minmax(110px, 0.34fr);
+    gap: 10px;
+    padding: 12px;
+}
+
+.is-brownian-lab #labCanvas,
+.is-brownian-lab #brownianTrailCanvas {
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+    border: 1px solid rgba(130, 180, 245, 0.45);
+    border-radius: 9px;
+}
+
+.is-brownian-lab .lab-header h2 {
+    color: #b9d8ff;
+}
+
+.is-brownian-lab .lab-header .eyebrow {
+    color: #93b7ec;
+}
+
+.is-brownian-lab .lab-close {
+    border-color: #6195dc;
+    color: #e8f0ff;
+}
+
+.brownian-lab-controls button:disabled {
+    cursor: not-allowed;
+    opacity: 0.55;
+}
+
+.heat-exchange-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.heat-exchange-controls h3 {
+    color: #c5dcff;
+    font-size: 0.96rem;
+}
+
+.heat-exchange-fields {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+}
+
+.heat-exchange-fields label {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    color: #d7e6ff;
+    font-size: 0.76rem;
+    line-height: 1.35;
+}
+
+.heat-exchange-fields input {
+    width: 100%;
+    min-width: 0;
+    min-height: 36px;
+    padding: 5px 7px;
+    border: 1px solid rgba(100, 151, 226, 0.42);
+    border-radius: 6px;
+    background: #102747;
+    color: #f2f6ff;
+    font: inherit;
+    font-size: 0.88rem;
+}
+
+.heat-exchange-constant {
+    color: #a9bfdf;
+    font-size: 0.76rem;
+    line-height: 1.45;
+}
+
+.heat-exchange-observation {
+    padding: 10px;
+    border-left: 3px solid #4a91ed;
+    border-radius: 0 8px 8px 0;
+    background: linear-gradient(125deg, rgba(126, 23, 58, 0.3), rgba(25, 68, 128, 0.42));
+}
+
+.heat-exchange-observation h4 {
+    margin-bottom: 6px;
+    color: #c1dcff;
+}
+
+.heat-exchange-observation p {
+    color: #b6c8e8;
+    font-size: 0.8rem;
+    line-height: 1.45;
+}
+
+.heat-exchange-observation p + p {
+    margin-top: 6px;
+    color: #e4edff;
+}
+
+.heat-exchange-controls .lab-instructions {
+    margin-top: 0;
+    font-size: 0.78rem;
+}
+
+.lab-window.is-heat-exchange-lab {
+    background: radial-gradient(ellipse at 70% 45%, #193c70, #0b162b 62%, #351128);
+}
+
+.is-heat-exchange-lab .lab-controls {
+    border-right-color: rgba(88, 151, 255, 0.36);
+    background: rgba(8, 20, 39, 0.92);
+}
+
+.is-heat-exchange-lab .lab-stage {
+    background: #0b1a31;
+}
+
+.is-heat-exchange-lab .lab-header h2 {
+    color: #b9d8ff;
+}
+
+.is-heat-exchange-lab .lab-header .eyebrow {
+    color: #93b7ec;
+}
+
+.is-heat-exchange-lab .lab-close {
+    border-color: #6195dc;
+    color: #e8f0ff;
+}
+
+.heat-exchange-controls button:disabled {
+    cursor: not-allowed;
+    opacity: 0.55;
+}
+
+.combustion-lab-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.combustion-lab-controls h3 {
+    color: #c5dcff;
+    font-size: 0.96rem;
+}
+
+.combustion-lab-fields {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+}
+
+.combustion-lab-fields label {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    color: #d7e6ff;
+    font-size: 0.76rem;
+    line-height: 1.35;
+}
+
+.combustion-lab-fields input,
+.combustion-lab-fields select {
+    width: 100%;
+    min-width: 0;
+    min-height: 36px;
+    padding: 5px 7px;
+    border: 1px solid rgba(100, 151, 226, 0.42);
+    border-radius: 6px;
+    background: #102747;
+    color: #f2f6ff;
+    font: inherit;
+    font-size: 0.88rem;
+}
+
+.combustion-lab-fields select option {
+    background: #102747;
+    color: #f2f6ff;
+}
+
+.combustion-lab-constant,
+.combustion-lab-equation {
+    color: #a9bfdf;
+    font-size: 0.76rem;
+    line-height: 1.45;
+}
+
+.combustion-lab-observation {
+    padding: 10px;
+    border-left: 3px solid #4a91ed;
+    border-radius: 0 8px 8px 0;
+    background: linear-gradient(125deg, rgba(126, 23, 58, 0.3), rgba(25, 68, 128, 0.42));
+}
+
+.combustion-lab-observation h4 {
+    margin-bottom: 6px;
+    color: #c1dcff;
+}
+
+.combustion-lab-observation p {
+    color: #b6c8e8;
+    font-size: 0.8rem;
+    line-height: 1.45;
+}
+
+.combustion-lab-observation p + p {
+    margin-top: 6px;
+    color: #e4edff;
+}
+
+.combustion-lab-controls .lab-instructions {
+    margin-top: 0;
+    font-size: 0.78rem;
+}
+
+.lab-window.is-combustion-lab {
+    background: radial-gradient(ellipse at 70% 45%, #193c70, #0b162b 62%, #351128);
+}
+
+.is-combustion-lab .lab-controls {
+    border-right-color: rgba(88, 151, 255, 0.36);
+    background: rgba(8, 20, 39, 0.92);
+}
+
+.is-combustion-lab .lab-stage {
+    background: #0b1a31;
+}
+
+.is-combustion-lab .lab-header h2 {
+    color: #b9d8ff;
+}
+
+.is-combustion-lab .lab-header .eyebrow {
+    color: #93b7ec;
+}
+
+.is-combustion-lab .lab-close {
+    border-color: #6195dc;
+    color: #e8f0ff;
+}
+
+.combustion-lab-controls button:disabled {
+    cursor: not-allowed;
+    opacity: 0.55;
+}
+
+.evaporation-lab-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.evaporation-lab-controls h3 {
+    color: #c5dcff;
+    font-size: 0.96rem;
+}
+
+.evaporation-lab-fields {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+}
+
+.evaporation-lab-fields label {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    color: #d7e6ff;
+    font-size: 0.76rem;
+    line-height: 1.35;
+}
+
+.evaporation-lab-fields input {
+    width: 100%;
+    min-width: 0;
+    min-height: 36px;
+    padding: 5px 7px;
+    border: 1px solid rgba(100, 151, 226, 0.42);
+    border-radius: 6px;
+    background: #102747;
+    color: #f2f6ff;
+    font: inherit;
+    font-size: 0.88rem;
+}
+
+.evaporation-table-toggle {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #d7e6ff;
+    font-size: 0.8rem;
+}
+
+.evaporation-table-toggle input {
+    accent-color: #4a91ed;
+}
+
+.evaporation-table-wrap {
+    max-height: 150px;
+    overflow-y: auto;
+    border: 1px solid rgba(100, 151, 226, 0.3);
+    border-radius: 6px;
+}
+
+.evaporation-table {
+    width: 100%;
+    border-collapse: collapse;
+    color: #e4edff;
+    font-size: 0.74rem;
+    text-align: center;
+}
+
+.evaporation-table caption {
+    padding: 6px;
+    color: #b9d8ff;
+}
+
+.evaporation-table th,
+.evaporation-table td {
+    padding: 4px;
+    border-top: 1px solid rgba(100, 151, 226, 0.2);
+}
+
+.evaporation-observation {
+    padding: 10px;
+    border-left: 3px solid #4a91ed;
+    border-radius: 0 8px 8px 0;
+    background: linear-gradient(125deg, rgba(126, 23, 58, 0.3), rgba(25, 68, 128, 0.42));
+}
+
+.evaporation-observation h4 {
+    margin-bottom: 6px;
+    color: #c1dcff;
+}
+
+.evaporation-observation p {
+    color: #b6c8e8;
+    font-size: 0.8rem;
+    line-height: 1.45;
+}
+
+.evaporation-observation p + p {
+    margin-top: 6px;
+    color: #e4edff;
+}
+
+.evaporation-lab-controls .lab-instructions {
+    margin-top: 0;
+    font-size: 0.78rem;
+}
+
+.lab-window.is-evaporation-lab {
+    background: radial-gradient(ellipse at 70% 45%, #193c70, #0b162b 62%, #351128);
+}
+
+.is-evaporation-lab .lab-controls {
+    border-right-color: rgba(88, 151, 255, 0.36);
+    background: rgba(8, 20, 39, 0.92);
+}
+
+.is-evaporation-lab .lab-stage {
+    background: #0b1a31;
+}
+
+.is-evaporation-lab .lab-header h2 {
+    color: #b9d8ff;
+}
+
+.is-evaporation-lab .lab-header .eyebrow {
+    color: #93b7ec;
+}
+
+.is-evaporation-lab .lab-close {
+    border-color: #6195dc;
+    color: #e8f0ff;
+}
+
+.maxwell-lab-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.maxwell-lab-controls h3 {
+    margin: 4px 0 0;
+    color: #c5dcff;
+    font-size: 0.98rem;
+}
+
+.maxwell-field {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    color: #d7e6ff;
+    font-size: 0.8rem;
+}
+
+.maxwell-field label {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+    line-height: 1.4;
+}
+
+.maxwell-field output {
+    flex: 0 0 auto;
+    color: #b8d7ff;
+    font-variant-numeric: tabular-nums;
+    text-align: right;
+}
+
+.maxwell-field select {
+    width: 100%;
+    min-height: 40px;
+    padding: 8px 10px;
+    border: 1px solid rgba(93, 150, 236, 0.42);
+    border-radius: 8px;
+    background: #101b2c;
+    color: #e8f0ff;
+    font: inherit;
+}
+
+.maxwell-field input[type="range"] {
+    width: 100%;
+    accent-color: #72aaff;
+}
+
+.maxwell-range-labels {
+    display: flex;
+    justify-content: space-between;
+    color: #93a8c6;
+    font-size: 0.72rem;
+}
+
+.maxwell-lab-controls .lab-instructions {
+    margin-top: 0;
+    font-size: 0.8rem;
+}
+
+.lab-window.is-maxwell-lab {
+    background: #0b1422;
+}
+
+.is-maxwell-lab .lab-header h2 {
+    color: #d5e5ff;
+}
+
+.is-maxwell-lab .lab-header .eyebrow {
+    color: #93b7ec;
+}
+
+.is-maxwell-lab .lab-close {
+    border-color: #6195dc;
+    color: #e8f0ff;
+}
+
+.is-maxwell-lab .lab-layout {
+    grid-template-columns: minmax(270px, 320px) minmax(0, 1fr);
+}
+
+.is-maxwell-lab .lab-controls {
+    border-right-color: rgba(88, 151, 255, 0.36);
+    background: #0d192a;
+}
+
+.is-maxwell-lab #standardLabControls {
+    display: none;
+}
+
+.is-maxwell-lab #labCanvas,
+.is-maxwell-lab #brownianTrailCanvas,
+.is-maxwell-lab #labLegend {
+    display: none;
+}
+
+.is-maxwell-lab .lab-stage {
+    display: block;
+    overflow-y: auto;
+    padding: 18px;
+    background: #0b1422;
+}
+
+.maxwell-stage {
+    display: grid;
+    grid-template-rows: minmax(280px, 1fr) auto;
+    gap: 16px;
+    min-height: 100%;
+}
+
+.maxwell-chart-card,
+.maxwell-speeds {
+    min-width: 0;
+    padding: 16px;
+    border: 1px solid rgba(114, 170, 255, 0.25);
+    border-radius: 12px;
+    background: #101b2c;
+}
+
+.maxwell-chart-card {
+    display: flex;
+    flex-direction: column;
+    min-height: 320px;
+}
+
+.maxwell-chart-card h3,
+.maxwell-speeds h3 {
+    margin-bottom: 12px;
+    color: #d5e5ff;
+    font-size: 1rem;
+    text-align: center;
+}
+
+#maxwellChart {
+    display: block;
+    flex: 1;
+    width: 100%;
+    min-height: 240px;
+}
+
+.maxwell-legend {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px 20px;
+    padding-top: 10px;
+    color: #bdcbe0;
+    font-size: 0.76rem;
+}
+
+.maxwell-legend span {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.maxwell-legend-line,
+.maxwell-legend-dot {
+    display: inline-block;
+    width: 16px;
+    height: 4px;
+    border-radius: 4px;
+    background: #72aaff;
+}
+
+.maxwell-legend-dot {
+    width: 9px;
+    height: 9px;
+    background: #fa6277;
+}
+
+.maxwell-speeds {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+}
+
+.maxwell-speeds h3 {
+    grid-column: 1 / -1;
+    margin: 0;
+}
+
+.maxwell-speeds article {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    text-align: center;
+}
+
+.maxwell-speeds strong {
+    color: #8db5ff;
+    font-size: clamp(1rem, 2vw, 1.35rem);
+    font-variant-numeric: tabular-nums;
+}
+
+.maxwell-speeds span {
+    color: #bdcbe0;
+    font-size: 0.8rem;
+}
+
+.evaporation-lab-controls button:disabled {
+    cursor: not-allowed;
+    opacity: 0.55;
+}
+
+.diffusion-lab-controls button:disabled {
+    cursor: not-allowed;
+    opacity: 0.55;
+}
+
+.lab-controls::-webkit-scrollbar {
+    width: 7px;
+}
+
+.lab-controls::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.lab-controls::-webkit-scrollbar-thumb {
+    border-radius: 7px;
+    background: rgba(128, 165, 218, 0.32);
+}
+
+.lab-control-group label {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 10px;
+    color: #f4dce0;
+    font-weight: 650;
+}
+
+.lab-control-group output {
+    color: #ff9eae;
+    font-variant-numeric: tabular-nums;
+}
+
+#labTemperature {
+    width: 100%;
+    accent-color: var(--red);
+}
+
+.lab-controls .btn {
+    width: 100%;
+}
+
+.lab-reset {
+    min-height: 44px;
+    border: 1px solid rgba(100, 151, 226, 0.42);
+    border-radius: 8px;
+    background: transparent;
+    color: #e2edff;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.lab-observation {
+    margin-top: 6px;
+    padding: 16px;
+    border-left: 3px solid var(--red);
+    background: rgba(255, 255, 255, 0.04);
+}
+
+.lab-observation h3 {
+    margin-bottom: 8px;
+    color: #c5dcff;
+}
+
+.lab-observation p,
+.lab-instructions {
+    color: var(--muted);
+    font-size: 0.92rem;
+    line-height: 1.65;
+}
+
+.lab-observation p + p {
+    margin-top: 8px;
+    color: #fff;
+}
+
+.lab-instructions {
+    margin-top: auto;
+    padding-top: 8px;
+}
+
+.lab-stage {
+    position: relative;
+    min-width: 0;
+    min-height: 0;
+    overflow: hidden;
+    background:
+        radial-gradient(ellipse at center, rgba(25, 66, 122, 0.62), rgba(6, 15, 30, 0.98)),
+        linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+    background-size: auto, 36px 36px, 36px 36px;
+}
+
+.is-molar-mass-lab .lab-stage {
+    background: #0b1a31;
+}
+
+#molarMassCanvas,
+#gasConstantCanvas,
+#isothermalCanvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+#labCanvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.lab-legend {
+    position: absolute;
+    right: 18px;
+    bottom: 16px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    color: #d8e6ff;
+    font-size: 0.82rem;
+    pointer-events: none;
+}
+
+.lab-legend span {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.lab-dot {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+
+.lab-dot-red {
+    background: #ff354d;
+    box-shadow: 0 0 10px #ff354d;
+}
+
+.lab-dot-blue {
+    background: #36a9ff;
+    box-shadow: 0 0 10px #36a9ff;
+}
+
+.topic-placeholder {
+    padding: 14px 16px;
+    border-left: 4px solid var(--red);
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 10px;
+    color: #ffe1e7;
+    margin-top: 18px;
+}
+
+@media (max-width: 980px) {
+    .content-grid.grades-list {
+        grid-template-columns: 1fr;
+    }
+
+    .grade-topic-card ul,
+    .chapter-card ul,
+    .grade-topic-card .grade-chapter ul {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .hero,
+    .content-grid,
+    .resource-grid,
+    .grade-grid,
+    .info-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .hero {
+        grid-template-columns: 1fr;
+        align-items: start;
+    }
+
+    .grade-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .cta-banner-inner {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+.topics-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+    margin-top: 18px;
+}
+
+.topic-box {
+    background: linear-gradient(145deg, rgba(20, 45, 80, 0.97), rgba(9, 21, 41, 0.98));
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    padding: 24px 22px;
+    cursor: pointer;
+    transition: transform 0.25s ease, border-color 0.25s ease;
+    box-shadow: 0 12px 26px rgba(0, 0, 0, 0.15);
+}
+
+.topic-box:hover {
+    transform: translateY(-4px);
+    border-color: rgba(255, 148, 161, 0.8);
+}
+
+.topic-box .icon {
+    display: block;
+    font-size: 2.3rem;
+    margin-bottom: 10px;
+}
+
+.topic-box h3 {
+    margin-bottom: 8px;
+    color: #ffd4dc;
+    font-size: 1.45rem;
+}
+
+.topic-box p {
+    color: var(--muted);
+    line-height: 1.7;
+}
+
+.topic-panel-content {
+    display: none;
+}
+
+.topic-modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(4, 12, 27, 0.86);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 200;
+    padding: 20px;
+}
+
+.topic-modal.open {
+    display: flex;
+}
+
+.topic-modal__dialog {
+    position: relative;
+    width: min(980px, 92vw);
+    max-height: 86vh;
+    overflow: auto;
+    background: linear-gradient(145deg, rgba(22, 49, 87, 0.98), rgba(8, 19, 38, 0.99));
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    padding: 28px 24px 22px;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+}
+
+.close-modal {
+    position: absolute;
+    top: 14px;
+    right: 18px;
+    width: 38px;
+    height: 38px;
+    border: 1px solid rgba(255, 136, 152, 0.5);
+    border-radius: 50%;
+    background: transparent;
+    color: #fff;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+#modalTitle {
+    margin-bottom: 18px;
+    font-size: clamp(1.6rem, 2.8vw, 2.4rem);
+    color: #ffd8df;
+}
+
+.modal-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 18px;
+    border-bottom: 1px solid rgba(255, 116, 133, 0.25);
+    padding-bottom: 12px;
+}
+
+.tab-btn {
+    padding: 10px 14px;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 126, 144, 0.35);
+    background: transparent;
+    color: #f7dfe4;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.tab-btn.active {
+    background: linear-gradient(135deg, var(--red), var(--red-dark));
+    border-color: transparent;
+}
+
+.modal-panel {
+    display: none;
+    padding-top: 6px;
+}
+
+.modal-panel.active {
+    display: block;
+}
+
+.modal-panel h4 {
+    color: #ffbfcc;
+    margin-bottom: 12px;
+    font-size: 1.3rem;
+}
+
+.modal-panel ul,
+.modal-panel ol {
+    margin: 10px 0 0 18px;
+    color: var(--muted);
+    line-height: 1.9;
+}
+
+.modal-panel p,
+.modal-panel li {
+    color: var(--muted);
+    line-height: 1.8;
+}
+
+.formula-box {
+    margin: 14px 0;
+    padding: 12px 14px;
+    border-left: 4px solid var(--red);
+    background: rgba(255, 255, 255, 0.03);
+    color: #ffffff;
+    font-weight: 700;
+    border-radius: 8px;
+}
+
+.inline-answer,
+.answer-btn {
+    margin-top: 12px;
+    background: linear-gradient(135deg, var(--red), var(--red-dark));
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 16px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.inline-answer-box,
+.answer {
+    margin-top: 12px;
+    padding: 12px 14px;
+    border: 1px solid rgba(255, 140, 159, 0.4);
+    background: linear-gradient(120deg, rgba(143, 17, 37, 0.2), rgba(35, 91, 166, 0.24));
+    border-radius: 10px;
+    color: #fff;
+    font-weight: 600;
+}
+
+.hidden {
+    display: none !important;
+}
+
+@media (max-width: 680px) {
+    .grade-topic-card ul,
+    .chapter-card ul,
+    .grade-topic-card .grade-chapter ul {
+        grid-template-columns: 1fr;
+    }
+
+    .presentation-controls {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .presentation-navigation,
+    .presentation-zoom {
+        justify-content: center;
+        width: 100%;
+    }
+
+    .info-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .lab-header {
+        min-height: 76px;
+        padding: 12px 16px;
+    }
+
+    .lab-layout {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto minmax(220px, 1fr);
+    }
+
+    .lab-controls {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+        padding: 12px 16px;
+        border-right: 0;
+        border-bottom: 1px solid rgba(78, 139, 235, 0.36);
+    }
+
+    #standardLabControls,
+    .ice-lab-controls,
+    .diffusion-lab-controls,
+    .brownian-lab-controls,
+    .heat-exchange-controls,
+    .combustion-lab-controls,
+    .evaporation-lab-controls {
+        grid-column: 1 / -1;
+    }
+
+    .lab-control-group,
+    .lab-observation,
+    .lab-instructions {
+        grid-column: 1 / -1;
+    }
+
+    .lab-observation {
+        display: grid;
+        grid-template-columns: 1fr 1.3fr;
+        gap: 6px 12px;
+        margin: 0;
+        padding: 10px 12px;
+    }
+
+    .lab-observation h3 {
+        grid-row: span 2;
+        align-self: center;
+    }
+
+    .lab-observation p + p {
+        margin-top: 0;
+    }
+
+    .lab-instructions {
+        display: none;
+    }
+
+    .ice-lab-controls .lab-instructions {
+        display: none;
+    }
+
+    .diffusion-lab-controls .lab-instructions {
+        display: none;
+    }
+
+    .brownian-lab-controls .lab-instructions {
+        display: none;
+    }
+
+    .heat-exchange-controls .lab-instructions {
+        display: none;
+    }
+
+    .combustion-lab-controls .lab-instructions {
+        display: none;
+    }
+
+    .evaporation-lab-controls .lab-instructions {
+        display: none;
+    }
+
+    .is-brownian-lab .lab-layout {
+        grid-template-columns: 1fr;
+        grid-template-rows: minmax(0, 1fr);
+    }
+
+    .is-brownian-lab .lab-controls {
+        display: block;
+        max-height: 38vh;
+        overflow-y: auto;
+        border-bottom: 1px solid rgba(78, 139, 235, 0.36);
+    }
+
+    .is-brownian-lab .lab-stage {
+        min-height: 220px;
+        grid-template-rows: minmax(120px, 1fr) minmax(74px, 0.34fr);
+    }
+
+    .is-maxwell-lab .lab-layout {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto minmax(420px, 1fr);
+    }
+
+    .is-maxwell-lab .lab-controls {
+        display: block;
+        max-height: 40vh;
+        overflow-y: auto;
+        border-bottom: 1px solid rgba(78, 139, 235, 0.36);
+    }
+
+    .maxwell-lab-controls {
+        gap: 9px;
+    }
+
+    .is-maxwell-lab .lab-stage {
+        min-height: 420px;
+        padding: 10px;
+    }
+
+    .maxwell-chart-card,
+    .maxwell-speeds {
+        padding: 10px;
+    }
+
+    .maxwell-speeds {
+        grid-template-columns: 1fr;
+    }
+
+    .lab-controls .btn,
+    .lab-reset {
+        min-height: 40px;
+        padding: 6px 10px;
+        font-size: 0.88rem;
+    }
+
+    .lab-legend {
+        right: 10px;
+        bottom: 10px;
+        font-size: 0.72rem;
+    }
+
+    .topics-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .header {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .nav {
+        justify-content: center;
+    }
+
+    .hero,
+    .section,
+    .page-shell,
+    .source-page {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .modal-tabs {
+        overflow-x: auto;
+        flex-wrap: nowrap;
+    }
+
+    .tab-btn {
+        white-space: nowrap;
+    }
+}

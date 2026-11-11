@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тақырып | MOLECULA</title>
+    <meta name="description" content="MOLECULA электронды кітабындағы физика тақырыптары: презентациялар, зертханалық жұмыстар, тапсырмалар және ҚМЖ.">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="topic-detail">
+    <header class="header">
+        <a href="index.html" class="logo">MOLECULA<span>.</span></a>
+        <nav class="nav">
+            <a href="index.html">Басты бет</a>
+            <a href="grades.html">Сыныптар</a>
+            <a href="sources.html">Дерек көздері</a>
+        </nav>
+    </header>
+
+    <main class="page-shell topic-page-shell">
+        <a class="back-link" id="topicBackLink" href="grades.html">← Сыныптар мен тақырыптарға қайту</a>
+
+        <section class="topic-detail-header">
+            <p class="eyebrow" id="topicGradeLabel">7-сынып</p>
+            <h1 id="topicDetailTitle">Тақырып</h1>
+        </section>
+
+        <div class="detail-tabs">
+            <button class="detail-tab active" type="button" data-tab="presentation">Презентация</button>
+            <button class="detail-tab" type="button" data-tab="video">Видео</button>
+            <button class="detail-tab" type="button" data-tab="lab">Лабораториялық жұмыс</button>
+            <button class="detail-tab" type="button" data-tab="task">Тапсырма</button>
+            <button class="detail-tab" type="button" data-tab="qmj">ҚМЖ</button>
+        </div>
+
+        <section class="detail-panel active" data-panel="presentation">
+            <h3>Презентация</h3>
+            <div class="presentation-viewer hidden" id="presentationViewer">
+                <div class="presentation-slide-frame">
+                    <img class="presentation-slide-image" id="presentationSlide" alt="">
+                </div>
+                <div class="presentation-controls">
+                    <div class="presentation-navigation">
+                        <button class="presentation-control" id="presentationPrevious" type="button" aria-label="Алдыңғы слайд" title="Алдыңғы слайд">←</button>
+                        <output class="presentation-counter" id="presentationCounter" aria-live="polite">1 / 11</output>
+                        <button class="presentation-control" id="presentationNext" type="button" aria-label="Келесі слайд" title="Келесі слайд">→</button>
+                    </div>
+                    <div class="presentation-zoom" aria-label="Слайд өлшемін басқару">
+                        <button class="presentation-control" id="presentationZoomOut" type="button" aria-label="Кішірейту" title="Кішірейту">−</button>
+                        <output class="presentation-zoom-level" id="presentationZoomLevel" aria-live="polite">100%</output>
+                        <button class="presentation-control" id="presentationZoomIn" type="button" aria-label="Үлкейту" title="Үлкейту">+</button>
+                        <button class="presentation-reset" id="presentationZoomReset" type="button">Бастапқы өлшем</button>
+                        <button class="presentation-reset presentation-fullscreen-button" id="presentationFullscreen" type="button" aria-label="Презентацияны толық экранға ашу" title="Презентацияны толық экранға ашу">
+                            <svg class="fullscreen-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                                <path class="fullscreen-enter-icon" d="M8 3H3v5M16 3h5v5M3 16v5h5M21 16v5h-5M3 3l7 7M21 3l-7 7M3 21l7-7m11 7-7-7" />
+                                <path class="fullscreen-exit-icon" d="M8 3v5H3M16 3v5h5M3 16h5v5m13-5h-5v5M8 3l2 2M16 3l-2 2M8 21l2-2m6 2-2-2" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="detail-panel" data-panel="video">
+            <h3>Видео түсіндіру</h3>
+        </section>
+
+        <section class="detail-panel" data-panel="lab">
+            <h3>Лабораториялық жұмыс</h3>
+            <div class="lab-entry hidden" id="moleculeLabEntry">
+                <p id="labIntro"></p>
+                <button class="btn btn-primary" id="openMoleculeLab" type="button">Зертхананы толық экранда ашу</button>
+            </div>
+        </section>
+
+        <section class="detail-panel" data-panel="task">
+            <h3>Тапсырма</h3>
+            <div class="presentation-viewer task-image-viewer hidden" id="taskImageViewer">
+                <div class="presentation-slide-frame">
+                    <img class="presentation-slide-image" id="taskImageSlide" alt="">
+                </div>
+                <div class="presentation-controls">
+                    <div class="presentation-navigation">
+                        <button class="presentation-control" id="taskImagePrevious" type="button" aria-label="Алдыңғы тапсырма">←</button>
+                        <output class="presentation-counter" id="taskImageCounter" aria-live="polite"></output>
+                        <button class="presentation-control" id="taskImageNext" type="button" aria-label="Келесі тапсырма">→</button>
+                    </div>
+                    <button class="presentation-reset presentation-fullscreen-button" id="taskImageFullscreen" type="button" aria-label="Тапсырмаларды толық экранға ашу" title="Тапсырмаларды толық экранға ашу">
+                        <svg class="fullscreen-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                            <path class="fullscreen-enter-icon" d="M8 3H3v5M16 3h5v5M3 16v5h5M21 16v5h-5M3 3l7 7M21 3l-7 7M3 21l7-7m11 7-7-7" />
+                            <path class="fullscreen-exit-icon" d="M8 3v5H3M16 3v5h5M3 16h5v5m13-5h-5v5M8 3l2 2M16 3l-2 2M8 21l2-2m6 2-2-2" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <section class="detail-panel" data-panel="qmj">
+            <h3>ҚМЖ</h3>
+        </section>
+    </main>
+
+    <div class="lab-overlay" id="moleculeLab" aria-hidden="true">
+        <section class="lab-window" role="dialog" aria-modal="true" aria-labelledby="labTitle">
+            <header class="lab-header">
+                <div>
+                    <p class="eyebrow" id="labGradeLabel">Виртуалды зертхана • 7-сынып</p>
+                    <h2 id="labTitle">Виртуалды зертхана</h2>
+                </div>
+                <button class="lab-close" id="closeMoleculeLab" type="button" aria-label="Зертхананы жабу">×</button>
+            </header>
+
+            <div class="lab-layout">
+                <aside class="lab-controls" aria-label="Зертхана басқаруы">
+                    <div id="standardLabControls">
+                    <div class="lab-control-group">
+                        <label for="labTemperature"><span id="labTemperatureLabel">Температура деңгейі</span><output id="labTemperatureValue">4</output></label>
+                        <input id="labTemperature" type="range" min="1" max="10" step="1" value="4">
+                    </div>
+                    <button class="btn btn-primary" id="labDividerButton" type="button">Бөлгішті ашу</button>
+                    <button class="btn btn-secondary" id="labPauseButton" type="button">Тоқтату</button>
+                    <button class="lab-reset" id="labResetButton" type="button">Қайта бастау</button>
+
+                    <section class="lab-observation" aria-live="polite">
+                        <h3>Бақылау</h3>
+                        <p id="labStatus">Бөлгіш жабық. Бөлшектер екі жақта қозғалады.</p>
+                        <p id="labCounts">Қызыл сол жақта: 16 · Көк оң жақта: 16</p>
+                    </section>
+
+                    <p class="lab-instructions">1. Бөлгіш жабық кездегі қозғалысты бақыла.<br>2. Бөлгішті ашып, бөлшектердің араласуын көр.<br>3. Температура деңгейін өзгертіп салыстыр.</p>
+                    </div>
+                    <section class="molar-mass-controls hidden" id="molarMassLabControls" aria-label="Газдың молярлық массасын анықтау тәжірибесінің параметрлері">
+                        <h3>Газ параметрлері</h3>
+                        <label class="molar-mass-gas" for="molarMassGas">Газды таңда
+                            <select id="molarMassGas">
+                                <option value="H₂" data-mass="2">H₂ — Сутек (2 г/моль)</option>
+                                <option value="He" data-mass="4">He — Гелий (4 г/моль)</option>
+                                <option value="CH₄" data-mass="16">CH₄ — Метан (16 г/моль)</option>
+                                <option value="H₂O" data-mass="18">H₂O — Су буы (18 г/моль)</option>
+                                <option value="Ne" data-mass="20">Ne — Неон (20 г/моль)</option>
+                                <option value="N₂" data-mass="28" selected>N₂ — Азот (28 г/моль)</option>
+                                <option value="C₂H₆" data-mass="30">C₂H₆ — Этан (30 г/моль)</option>
+                                <option value="O₂" data-mass="32">O₂ — Оттек (32 г/моль)</option>
+                                <option value="Ar" data-mass="40">Ar — Аргон (40 г/моль)</option>
+                                <option value="CO₂" data-mass="44">CO₂ — Көмірқышқыл газы (44 г/моль)</option>
+                            </select>
+                        </label>
+                        <div class="molar-mass-fields">
+                            <label for="molarMassTemperature">Температура, °C
+                                <input id="molarMassTemperature" type="number" min="-272" max="500" step="1" value="20" required>
+                            </label>
+                            <label for="molarMassVolume">Көлем, м³
+                                <input id="molarMassVolume" type="number" min="0.001" max="1" step="0.001" value="0.003" required>
+                            </label>
+                            <label for="molarMassInitialMass">Бастапқы масса m₁, кг
+                                <input id="molarMassInitialMass" type="number" min="0.000001" max="10" step="0.000001" value="0.05" required>
+                            </label>
+                            <label for="molarMassFinalMass">Соңғы масса m₂, кг
+                                <input id="molarMassFinalMass" type="number" min="0" max="10" step="0.000001" value="0.049827" required>
+                            </label>
+                            <label for="molarMassInitialPressure">Бастапқы қысым P₁, Па
+                                <input id="molarMassInitialPressure" type="number" min="0" max="10000000" step="1000" value="101000" required>
+                            </label>
+                            <label for="molarMassFinalPressure">Соңғы қысым P₂, Па
+                                <input id="molarMassFinalPressure" type="number" min="0" max="10000000" step="1000" value="96000" required>
+                            </label>
+                        </div>
+                        <p class="molar-mass-equation">M = (m₁ − m₂)RT / ((P₁ − P₂)V), &nbsp; T = t + 273,15</p>
+                        <div class="ice-lab-actions">
+                            <button class="btn btn-primary" id="molarMassStart" type="button">Пуск</button>
+                            <button class="btn btn-secondary" id="molarMassPause" type="button" disabled>Пауза</button>
+                            <button class="lab-reset" id="molarMassReset" type="button">Сброс</button>
+                        </div>
+                        <section class="lab-observation molar-mass-observation" aria-live="polite">
+                            <h3>Өлшеу нәтижесі</h3>
+                            <p id="molarMassStatus">Газды таңдап, Пуск батырмасын бас.</p>
+                            <p id="molarMassResult">M = — · n = —</p>
+                            <p id="molarMassComparison">Анықтамалық мән: —</p>
+                        </section>
+                        <p class="lab-instructions">Пуск батырмасын басып, газдың бір бөлігі шығарылғанын бақыла. Өлшенген масса мен қысым айырмасы арқылы молярлық массаны анықта.</p>
+                    </section>
+                    <section class="molar-mass-controls hidden" id="gasConstantLabControls" aria-label="Әмбебап газ тұрақтысын анықтау тәжірибесінің параметрлері">
+                        <h3>Газ параметрлері</h3>
+                        <label class="molar-mass-gas" for="gasConstantGas">Газды таңда
+                            <select id="gasConstantGas">
+                                <option value="air" data-molar-mass="0.029" selected>Ауа (μ = 0,029 кг/моль)</option>
+                                <option value="CO₂" data-molar-mass="0.044">Көмірқышқыл газы (μ = 0,044 кг/моль)</option>
+                                <option value="N₂" data-molar-mass="0.028">Азот (μ = 0,028 кг/моль)</option>
+                                <option value="O₂" data-molar-mass="0.032">Оттек (μ = 0,032 кг/моль)</option>
+                                <option value="Ar" data-molar-mass="0.040">Аргон (μ = 0,040 кг/моль)</option>
+                                <option value="CH₄" data-molar-mass="0.016">Метан (μ = 0,016 кг/моль)</option>
+                                <option value="O₃" data-molar-mass="0.048">Озон (μ = 0,048 кг/моль)</option>
+                                <option value="C₂H₂" data-molar-mass="0.026">Ацетилен (μ = 0,026 кг/моль)</option>
+                                <option value="He" data-molar-mass="0.004">Гелий (μ = 0,004 кг/моль)</option>
+                                <option value="NH₃" data-molar-mass="0.017">Аммиак (μ = 0,017 кг/моль)</option>
+                            </select>
+                        </label>
+                        <div class="molar-mass-fields">
+                            <label for="gasConstantTemperature">Температура, °C
+                                <input id="gasConstantTemperature" type="number" min="-272" max="500" step="1" value="20" required>
+                            </label>
+                            <label for="gasConstantVolume">Көлем, м³
+                                <input id="gasConstantVolume" type="number" min="0.001" max="1" step="0.001" value="0.003" required>
+                            </label>
+                            <label for="gasConstantInitialMass">Бастапқы масса m₁, кг
+                                <input id="gasConstantInitialMass" type="number" min="0.0000001" max="10" step="0.0000001" value="0.05" required>
+                            </label>
+                            <label for="gasConstantFinalMass">Соңғы масса m₂, кг
+                                <input id="gasConstantFinalMass" type="number" min="0" max="10" step="0.0000001" value="0.049821" required>
+                            </label>
+                            <label for="gasConstantInitialPressure">Бастапқы қысым P₁, Па
+                                <input id="gasConstantInitialPressure" type="number" min="0" max="10000000" step="1000" value="101000" required>
+                            </label>
+                            <label for="gasConstantFinalPressure">Соңғы қысым P₂, Па
+                                <input id="gasConstantFinalPressure" type="number" min="0" max="10000000" step="1000" value="96000" required>
+                            </label>
+                        </div>
+                        <p class="molar-mass-equation">R = μ(P₁ − P₂)V / ((m₁ − m₂)T), &nbsp; T = t + 273,15</p>
+                        <div class="ice-lab-actions">
+                            <button class="btn btn-primary" id="gasConstantStart" type="button">Пуск</button>
+                            <button class="btn btn-secondary" id="gasConstantPause" type="button" disabled>Пауза</button>
+                            <button class="lab-reset" id="gasConstantReset" type="button">Сброс</button>
+                        </div>
+                        <section class="lab-observation molar-mass-observation" aria-live="polite">
+                            <h3>Өлшеу нәтижесі</h3>
+                            <p id="gasConstantStatus">Газды таңдап, Пуск батырмасын бас.</p>
+                            <p id="gasConstantResult">R = — · n = —</p>
+                            <p id="gasConstantComparison">N = — · анықтамалық R = 8,31 Дж/(моль·К)</p>
+                        </section>
+                        <p class="lab-instructions">Газдың температурасы мен көлемін тұрақты ұста. Пуск батырмасын басып, газ шыққанға дейінгі және шыққаннан кейінгі масса мен қысымды салыстырып, R мәнін есепте.</p>
+                    </section>
+                    <section class="molar-mass-controls hidden" id="isothermalLabControls" aria-label="Газдағы изотермиялық процесті зерттеу параметрлері">
+                        <h3>Бастапқы параметрлер</h3>
+                        <label class="molar-mass-gas" for="isothermalGas">Газды таңда
+                            <select id="isothermalGas">
+                                <option value="air" data-molar-mass="0.029" selected>Ауа (μ = 0,029 кг/моль)</option>
+                                <option value="C₂H₂" data-molar-mass="0.026">Ацетилен (μ = 0,026 кг/моль)</option>
+                                <option value="CH₄" data-molar-mass="0.016">Метан (μ = 0,016 кг/моль)</option>
+                                <option value="Ar" data-molar-mass="0.040">Аргон (μ = 0,040 кг/моль)</option>
+                                <option value="CO₂" data-molar-mass="0.044">Көмірқышқыл газы (μ = 0,044 кг/моль)</option>
+                            </select>
+                        </label>
+                        <div class="molar-mass-fields">
+                            <label for="isothermalTemperature">Бастапқы температура t₀, °C
+                                <input id="isothermalTemperature" type="number" min="-272" max="500" step="1" value="20" required>
+                            </label>
+                            <label for="isothermalInitialVolume">Бастапқы көлем V₀, л
+                                <input id="isothermalInitialVolume" type="number" min="0.2" max="6" step="0.1" value="1" required>
+                            </label>
+                            <label for="isothermalInitialPressure">Бастапқы қысым P₀, кПа
+                                <input id="isothermalInitialPressure" type="number" min="1" max="1000" step="1" value="100" required>
+                            </label>
+                        </div>
+                        <div class="isothermal-current-state" aria-live="polite">
+                            <h3>Тұрақты температурада</h3>
+                            <p id="isothermalTemperatureState">T = 293,15 K · t = 20 °C</p>
+                            <p id="isothermalMassState">m = — · μ = —</p>
+                            <p id="isothermalPressureState">Pᵢ = — кПа</p>
+                        </div>
+                        <label class="isothermal-volume-control" for="isothermalVolume">Газ көлемі Vᵢ
+                            <output id="isothermalVolumeValue">1,0 л</output>
+                        </label>
+                        <input id="isothermalVolume" type="range" min="0.2" max="6" step="0.1" value="1" aria-label="Газдың ағымдағы көлемі">
+                        <p class="molar-mass-equation">P₀V₀ = PᵢVᵢ, &nbsp; T = const · Ē<sub>k</sub> = ³⁄₂k<sub>B</sub>T</p>
+                        <div class="ice-lab-actions">
+                            <button class="btn btn-primary" id="isothermalStart" type="button">Пуск</button>
+                            <button class="btn btn-secondary" id="isothermalPause" type="button" disabled>Пауза</button>
+                            <button class="lab-reset" id="isothermalStop" type="button">Стоп</button>
+                        </div>
+                        <section class="lab-observation molar-mass-observation" aria-live="polite">
+                            <h3>Бақылау нәтижесі</h3>
+                            <p id="isothermalStatus">Көлемді өзгертіп, қысымның өзгерісін бақыла.</p>
+                            <p id="isothermalResult">P₀V₀ = — кПа·л · Ēₖ = —</p>
+                        </section>
+                        <p class="lab-instructions">Көлем жүгірткісін жылжытып немесе «Пуск» батырмасын бас. Изотермиялық сығылу/ұлғаю кезінде температура мен молекулалардың орташа кинетикалық энергиясы тұрақты, ал қысым көлемге кері пропорционал өзгереді.</p>
+                    </section>
+                    <section class="ice-lab-controls hidden" id="iceMeltingControls" aria-label="Мұздың балқу тәжірибесінің параметрлері">
+                        <h3>Тәжірибе параметрлері</h3>
+                        <div class="ice-lab-fields">
+                            <label for="iceWaterVolume">Су көлемі, л
+                                <input id="iceWaterVolume" type="number" min="0.1" max="10" step="0.1" value="3">
+                            </label>
+                            <label for="iceWaterTemperature">Судың температурасы, °C
+                                <input id="iceWaterTemperature" type="number" min="5" max="90" step="1" value="50">
+                            </label>
+                            <label for="iceMass">Мұз массасы, кг
+                                <input id="iceMass" type="number" min="0.01" max="1" step="0.01" value="0.2">
+                            </label>
+                            <label for="iceTemperature">Мұздың температурасы, °C
+                                <input id="iceTemperature" type="number" min="-30" max="0" step="1" value="-10">
+                            </label>
+                            <label for="calorimeterMass">Калориметр массасы, кг
+                                <input id="calorimeterMass" type="number" min="0.01" max="2" step="0.01" value="0.2">
+                            </label>
+                            <label for="calorimeterHeatCapacity">Калориметрдің жылусыйымдылығы, Дж/(кг·°C)
+                                <input id="calorimeterHeatCapacity" type="number" min="50" max="1000" step="10" value="100">
+                            </label>
+                        </div>
+                        <p class="ice-lab-constants">c<sub>су</sub> = 4200 және c<sub>мұз</sub> = 2100 Дж/(кг·°C)</p>
+                        <p class="ice-lab-equation">Q<sub>су</sub> + Q<sub>кал</sub> = Q<sub>мұзды қыздыру</sub> + m<sub>мұз</sub>λ + Q<sub>еріген су</sub></p>
+                        <div class="ice-lab-actions">
+                            <button class="btn btn-primary" id="iceLabStart" type="button">Пуск</button>
+                            <button class="btn btn-secondary" id="iceLabPause" type="button" disabled>Пауза</button>
+                            <button class="lab-reset" id="iceLabStop" type="button">Стоп</button>
+                        </div>
+                        <section class="lab-observation ice-lab-observation" aria-live="polite">
+                            <h3>Өлшеу нәтижесі</h3>
+                            <p id="iceLabStatus">Пуск батырмасын басып, мұздың еруін бақыла.</p>
+                            <p id="iceLabResult">Соңғы температура: — · λ: —</p>
+                        </section>
+                        <p class="lab-instructions">Су мен мұздың массасын енгіз. Тәжірибені іске қосып, қоспаның соңғы температурасын өлше. Энергия сақталу заңымен мұздың меншікті балқу жылуын есепте.</p>
+                    </section>
+                    <section class="diffusion-lab-controls hidden" id="diffusionLabControls" aria-label="Диффузия тәжірибесінің параметрлері">
+                        <h3>Диффузия тәжірибесі</h3>
+                        <div class="diffusion-lab-fields">
+                            <label for="diffusionTubeRadius"><span>Түтік радиусы</span><output id="diffusionTubeRadiusValue">15</output></label>
+                            <input id="diffusionTubeRadius" type="range" min="5" max="30" step="1" value="15">
+                            <label for="diffusionTemperature"><span>Температура, °C</span><output id="diffusionTemperatureValue">100</output></label>
+                            <input id="diffusionTemperature" type="range" min="0" max="200" step="1" value="100">
+                            <label for="diffusionBlueCount"><span>Көк бөлшектер (сол жақ)</span><output id="diffusionBlueCountValue">100</output></label>
+                            <input id="diffusionBlueCount" type="range" min="0" max="150" step="5" value="100">
+                            <label for="diffusionRedCount"><span>Қызыл бөлшектер (оң жақ)</span><output id="diffusionRedCountValue">100</output></label>
+                            <input id="diffusionRedCount" type="range" min="0" max="150" step="5" value="100">
+                        </div>
+                        <section class="diffusion-statistics" aria-live="polite">
+                            <h4>Диффузия статистикасы</h4>
+                            <p><span>Көк бөлшектер сол жақта:</span><output id="diffusionBlueLeft">100</output></p>
+                            <p><span>Көк бөлшектер оң жақта:</span><output id="diffusionBlueRight">0</output></p>
+                            <p><span>Қызыл бөлшектер оң жақта:</span><output id="diffusionRedRight">100</output></p>
+                            <p><span>Қызыл бөлшектер сол жақта:</span><output id="diffusionRedLeft">0</output></p>
+                        </section>
+                        <div class="diffusion-lab-timer" id="diffusionTimer" aria-live="off">00:00.00</div>
+                        <div class="ice-lab-actions">
+                            <button class="btn btn-primary" id="diffusionStart" type="button">Пуск</button>
+                            <button class="btn btn-secondary" id="diffusionPause" type="button" disabled>Пауза</button>
+                            <button class="lab-reset" id="diffusionReset" type="button">Сброс</button>
+                        </div>
+                        <p class="lab-instructions">Бөлшектердің бастапқы таралуын бақыла. Пуск батырмасын басып, түтік арқылы араласуын зертте. Температура мен түтік радиусын өзгертіп, диффузия жылдамдығын салыстыр.</p>
+                    </section>
+                    <section class="brownian-lab-controls hidden" id="brownianLabControls" aria-label="Броундық қозғалыс тәжірибесінің параметрлері">
+                        <h3>Негізгі параметрлер</h3>
+                        <div class="brownian-lab-fields">
+                            <label for="brownianMoleculeCount"><span>Молекула саны</span><output id="brownianMoleculeCountValue">250</output></label>
+                            <input id="brownianMoleculeCount" type="range" min="1" max="500" step="1" value="250">
+                            <label for="brownianTemperature"><span>Температура (энергия)</span><output id="brownianTemperatureValue">5.0</output></label>
+                            <input id="brownianTemperature" type="range" min="0.1" max="10" step="0.1" value="5">
+                            <label for="brownianViscosity"><span>Ортаның тұтқырлығы</span><output id="brownianViscosityValue">0.010</output></label>
+                            <input id="brownianViscosity" type="range" min="0.005" max="0.05" step="0.001" value="0.01">
+                        </div>
+                        <h3>Бөлшек параметрлері</h3>
+                        <div class="brownian-lab-fields">
+                            <label for="brownianMoleculeSize"><span>Молекула өлшемі</span><output id="brownianMoleculeSizeValue">4</output></label>
+                            <input id="brownianMoleculeSize" type="range" min="2" max="8" step="1" value="4">
+                            <label for="brownianParticleSize"><span>Броундық бөлшек өлшемі</span><output id="brownianParticleSizeValue">20</output></label>
+                            <input id="brownianParticleSize" type="range" min="10" max="40" step="2" value="20">
+                            <label for="brownianParticleMass"><span>Броундық бөлшек массасы</span><output id="brownianParticleMassValue">5.0</output></label>
+                            <input id="brownianParticleMass" type="range" min="0.5" max="10" step="0.5" value="5">
+                            <label for="brownianTrailLength"><span>Траектория ұзындығы</span><output id="brownianTrailLengthValue">3000</output></label>
+                            <input id="brownianTrailLength" type="range" min="100" max="5000" step="100" value="3000">
+                        </div>
+                        <section class="brownian-statistics" aria-live="polite">
+                            <h4>Статистика</h4>
+                            <p><span>Уақыт:</span><output id="brownianTime">0.0 с</output></p>
+                            <p><span>Жылдамдық:</span><output id="brownianSpeed">0.00</output></p>
+                            <p><span>Соқтығысу:</span><output id="brownianCollisions">0</output></p>
+                            <p><span>Ығысу:</span><output id="brownianDisplacement">0.00</output></p>
+                        </section>
+                        <div class="ice-lab-actions">
+                            <button class="btn btn-primary" id="brownianStart" type="button">Пуск</button>
+                            <button class="btn btn-secondary" id="brownianPause" type="button" disabled>Пауза</button>
+                            <button class="lab-reset" id="brownianReset" type="button">Сброс</button>
+                        </div>
+                        <p class="lab-instructions">Пуск батырмасын басып, молекулалардың броундық бөлшекпен соқтығысуын бақыла. Температура, тұтқырлық және бөлшек массасын өзгертіп, қозғалыс пен траекторияны салыстыр.</p>
+                    </section>
+                    <section class="heat-exchange-controls hidden" id="heatExchangeControls" aria-label="Жылу алмасу тәжірибесінің параметрлері">
+                        <h3>Ыстық судың параметрлері</h3>
+                        <div class="heat-exchange-fields">
+                            <label for="hotWaterVolume">V₁ — көлемі, л
+                                <input id="hotWaterVolume" type="number" min="0.05" max="1" step="0.05" value="0.1">
+                            </label>
+                            <label for="hotWaterTemperature">t₁ — температурасы, °C
+                                <input id="hotWaterTemperature" type="number" min="1" max="100" step="1" value="20">
+                            </label>
+                        </div>
+                        <h3>Калориметрдегі судың параметрлері</h3>
+                        <div class="heat-exchange-fields">
+                            <label for="calorimeterInitialTemperature">Бастапқы температура, °C
+                                <input id="calorimeterInitialTemperature" type="number" min="0" max="100" step="1" value="0">
+                            </label>
+                        </div>
+                        <h3>Салқын судың параметрлері</h3>
+                        <div class="heat-exchange-fields">
+                            <label for="coldWaterVolume">V₂ — көлемі, л
+                                <input id="coldWaterVolume" type="number" min="0.05" max="1" step="0.05" value="0.1">
+                            </label>
+                            <label for="coldWaterTemperature">t₂ — температурасы, °C
+                                <input id="coldWaterTemperature" type="number" min="0" max="100" step="1" value="10">
+                            </label>
+                        </div>
+                        <p class="heat-exchange-constant">c<sub>су</sub> = 4200 Дж/(кг·°C) · C<sub>кал</sub> = 100 Дж/°C</p>
+                        <p class="heat-exchange-constant">Q<sub>ыстық су</sub> = Q<sub>салқын су</sub> + Q<sub>калориметр</sub></p>
+                        <div class="ice-lab-actions">
+                            <button class="btn btn-primary" id="heatExchangeStart" type="button">Пуск</button>
+                            <button class="btn btn-secondary" id="heatExchangePause" type="button" disabled>Пауза</button>
+                            <button class="lab-reset" id="heatExchangeReset" type="button">Сброс</button>
+                        </div>
+                        <section class="heat-exchange-observation" aria-live="polite">
+                            <h4>Өлшеу нәтижесі</h4>
+                            <p id="heatExchangeStatus">Пуск батырмасын басып, жылу алмасуды бақыла.</p>
+                            <p id="heatExchangeResult">Есептік тепе-теңдік температурасы: —</p>
+                        </section>
+                        <p class="lab-instructions">Ыстық және салқын судың көлемі мен бастапқы температурасын енгіз. Пуск батырмасын басып, жылу алмасуды бақыла. Өлшенген соңғы температураны есептік мәнмен салыстыр.</p>
+                    </section>
+                    <section class="combustion-lab-controls hidden" id="combustionLabControls" aria-label="Отынның меншікті жану жылуын анықтау тәжірибесінің параметрлері">
+                        <h3>Сұйық параметрлері</h3>
+                        <div class="combustion-lab-fields">
+                            <label for="combustionLiquid">Сұйық түрі
+                                <select id="combustionLiquid">
+                                    <option value="water" selected>Су</option>
+                                    <option value="milk">Сүт</option>
+                                    <option value="benzene">Бензол</option>
+                                    <option value="turpentine">Скипидар</option>
+                                    <option value="glycerin">Глицерин</option>
+                                </select>
+                            </label>
+                            <label for="combustionInitialTemperature">Бастапқы температура, °C
+                                <input id="combustionInitialTemperature" type="number" min="0" max="90" step="1" value="20">
+                            </label>
+                            <label for="combustionVolume">Көлемі, л
+                                <input id="combustionVolume" type="number" min="0.1" max="3" step="0.1" value="1">
+                            </label>
+                        </div>
+                        <h3>Отын және өлшеу</h3>
+                        <div class="combustion-lab-fields">
+                            <label for="combustionFuel">Отын түрі
+                                <select id="combustionFuel">
+                                    <option value="wood" selected>Ағаш</option>
+                                    <option value="brownCoal">Қоңыр көмір</option>
+                                    <option value="peat">Шымтезек</option>
+                                    <option value="coal">Тас көмір</option>
+                                    <option value="anthracite">Антрацит</option>
+                                </select>
+                            </label>
+                            <label for="combustionFuelInitialMass">Отынның бастапқы массасы, кг
+                                <input id="combustionFuelInitialMass" type="number" min="0.001" max="1" step="0.001" value="0.05">
+                            </label>
+                            <label for="combustionFuelRemainingMass">Жанғаннан кейінгі масса, кг
+                                <input id="combustionFuelRemainingMass" type="number" min="0" max="0.999" step="0.001" value="0.045">
+                            </label>
+                        </div>
+                        <p class="combustion-lab-constant" id="combustionHeatCapacity">Судың меншікті жылусыйымдылығы: c = 4200 Дж/(кг·°C)</p>
+                        <p class="combustion-lab-equation">Q<sub>отын</sub> = Q<sub>сұйық</sub> + Q<sub>кал</sub>; &nbsp; q = (m<sub>сұйық</sub>c + C<sub>кал</sub>)Δt / Δm<sub>отын</sub></p>
+                        <div class="ice-lab-actions">
+                            <button class="btn btn-primary" id="combustionStart" type="button">Пуск</button>
+                            <button class="btn btn-secondary" id="combustionPause" type="button" disabled>Пауза</button>
+                            <button class="lab-reset" id="combustionReset" type="button">Сброс</button>
+                        </div>
+                        <section class="combustion-lab-observation" aria-live="polite">
+                            <h4>Өлшеу нәтижесі</h4>
+                            <p id="combustionStatus">Отын массасын өлшеп, тәжірибені баста.</p>
+                            <p id="combustionResult">Соңғы температура: — · q: —</p>
+                        </section>
+                        <p class="lab-instructions">Сұйық пен отынды таңда. Отын жанғанда бөлінген энергия сұйықты қыздырады. Температура мен отын массасының өзгерісін бақылап, отынның меншікті жану жылуын есепте.</p>
+                    </section>
+                    <section class="evaporation-lab-controls hidden" id="evaporationLabControls" aria-label="Булану және ауа ылғалдылығын анықтау тәжірибесінің параметрлері">
+                        <h3>Психрометр көрсеткіштері</h3>
+                        <div class="evaporation-lab-fields">
+                            <label for="dryBulbTemperature">Құрғақ термометр, °C
+                                <input id="dryBulbTemperature" type="number" min="0" max="40" step="1" value="25" required>
+                            </label>
+                            <label for="wetBulbTemperature">Дымқыл термометр, °C
+                                <input id="wetBulbTemperature" type="number" min="0" max="40" step="1" value="20" required>
+                            </label>
+                        </div>
+                        <label class="evaporation-table-toggle" for="psychrometricTableToggle">
+                            <input id="psychrometricTableToggle" type="checkbox" aria-expanded="false">
+                            Психрометриялық кестені көрсету
+                        </label>
+                        <div class="evaporation-table-wrap hidden" id="psychrometricTableWrap">
+                            <table class="evaporation-table">
+                                <caption>Салыстырмалы ылғалдылық, %</caption>
+                                <thead><tr><th>t<sub>құрғақ</sub> − t<sub>дымқыл</sub>, °C</th><th>Ылғалдылық</th></tr></thead>
+                                <tbody id="psychrometricTableBody"></tbody>
+                            </table>
+                        </div>
+                        <div class="ice-lab-actions">
+                            <button class="btn btn-primary" id="evaporationStart" type="button">Пуск</button>
+                            <button class="btn btn-secondary" id="evaporationPause" type="button" disabled>Пауза</button>
+                            <button class="lab-reset" id="evaporationReset" type="button">Сброс</button>
+                        </div>
+                        <section class="evaporation-observation" aria-live="polite">
+                            <h4>Бақылау нәтижесі</h4>
+                            <p id="evaporationStatus">Психрометр көрсеткіштерін енгізіп, тәжірибені баста.</p>
+                            <p id="evaporationResult">Ауаның салыстырмалы ылғалдылығы: —</p>
+                        </section>
+                        <p class="lab-instructions">Дымқыл термометрден су буланғанда жылу жұмсалып, оның температурасы төмендейді. Екі термометр көрсеткіштерінің айырмасы арқылы ауаның салыстырмалы ылғалдылығын анықта.</p>
+                    </section>
+                    <section class="maxwell-lab-controls hidden" id="maxwellLabControls" aria-label="Максвелл таралуы тәжірибесінің параметрлері">
+                        <h3>Газды таңда</h3>
+                        <label class="maxwell-field" for="maxwellGas">Газ түрі
+                            <select id="maxwellGas">
+                                <option value="custom">Молекула массасын қолмен енгізу</option>
+                                <option value="H₂" data-mass="2" selected>H₂ — Сутек (2 г/моль)</option>
+                                <option value="He" data-mass="4">He — Гелий (4 г/моль)</option>
+                                <option value="CH₄" data-mass="16">CH₄ — Метан (16 г/моль)</option>
+                                <option value="H₂O" data-mass="18">H₂O — Су буы (18 г/моль)</option>
+                                <option value="Ne" data-mass="20">Ne — Неон (20 г/моль)</option>
+                                <option value="N₂" data-mass="28">N₂ — Азот (28 г/моль)</option>
+                                <option value="C₂H₆" data-mass="30">C₂H₆ — Этан (30 г/моль)</option>
+                                <option value="O₂" data-mass="32">O₂ — Оттек (32 г/моль)</option>
+                                <option value="Ar" data-mass="40">Ar — Аргон (40 г/моль)</option>
+                                <option value="CO₂" data-mass="44">CO₂ — Көмірқышқыл газы (44 г/моль)</option>
+                            </select>
+                        </label>
+                        <div class="maxwell-field">
+                            <label for="maxwellMass">Молекула массасы <output id="maxwellMassValue">2 u · 3.32 × 10⁻²⁷ кг</output></label>
+                            <input id="maxwellMass" type="range" min="1" max="50" step="1" value="2">
+                            <div class="maxwell-range-labels"><span>Жеңіл (1 u)</span><span>Ауыр (50 u)</span></div>
+                        </div>
+                        <h3>Жүйе параметрлері</h3>
+                        <div class="maxwell-field">
+                            <label for="maxwellTemperature">Температура <output id="maxwellTemperatureValue">300 K</output></label>
+                            <input id="maxwellTemperature" type="range" min="100" max="1000" step="10" value="300">
+                            <div class="maxwell-range-labels"><span>100 K</span><span>1000 K</span></div>
+                        </div>
+                        <div class="maxwell-field">
+                            <label for="maxwellCount">Молекула саны <output id="maxwellCountValue">300</output></label>
+                            <input id="maxwellCount" type="range" min="100" max="500" step="10" value="300">
+                            <div class="maxwell-range-labels"><span>100</span><span>500</span></div>
+                        </div>
+                        <div class="maxwell-field">
+                            <label for="maxwellDotSize">Графиктегі молекула өлшемі <output id="maxwellDotSizeValue">3</output></label>
+                            <input id="maxwellDotSize" type="range" min="1" max="6" step="1" value="3">
+                            <div class="maxwell-range-labels"><span>Кіші</span><span>Үлкен</span></div>
+                        </div>
+                        <button class="lab-reset" id="maxwellReset" type="button">Бастапқы мәндерге қайтару</button>
+                        <p class="lab-instructions">Газ түрін және температураны өзгертіп, молекулалардың жылдамдық бойынша таралуын салыстыр. Теориялық қисық пен модельденген молекулалар графикте қатар көрсетіледі.</p>
+                    </section>
+                </aside>
+
+                <div class="lab-stage">
+                    <canvas id="labCanvas" aria-label="Бөлшектердің қозғалысын көрсететін виртуалды тәжірибе"></canvas>
+                    <canvas id="molarMassCanvas" class="hidden" aria-label="Газ баллоны мен манометр көрсетілген виртуалды тәжірибе"></canvas>
+                    <canvas id="gasConstantCanvas" class="hidden" aria-label="Газ баллоны, термометр және манометр көрсетілген тәжірибе"></canvas>
+                    <canvas id="isothermalCanvas" class="hidden" aria-label="Изотермиялық процестегі термометр, манометр және газ поршені"></canvas>
+                    <canvas id="brownianTrailCanvas" class="hidden" aria-label="Броундық бөлшектің қозғалыс траекториясы"></canvas>
+                    <div class="lab-legend" aria-hidden="true" id="labLegend">
+                        <span><i class="lab-dot lab-dot-red"></i>Қызыл молекулалар</span>
+                        <span><i class="lab-dot lab-dot-blue"></i>Көк молекулалар</span>
+                    </div>
+                    <section class="maxwell-stage hidden" id="maxwellStage" aria-label="Максвелл таралуының графигі">
+                        <div class="maxwell-chart-card">
+                            <h3>Максвелл бойынша жылдамдықтардың таралуы</h3>
+                            <canvas id="maxwellChart" role="img" aria-label="Газ молекулалары жылдамдықтарының таралу графигі"></canvas>
+                            <div class="maxwell-legend">
+                                <span><i class="maxwell-legend-line"></i>Теориялық Максвелл қисығы</span>
+                                <span><i class="maxwell-legend-dot"></i>Модельденген молекулалар</span>
+                            </div>
+                        </div>
+                        <section class="maxwell-speeds" aria-live="polite">
+                            <h3>Сипаттамалық жылдамдықтар</h3>
+                            <article><strong id="maxwellMostProbable">—</strong><span>Ең ықтимал жылдамдық</span></article>
+                            <article><strong id="maxwellAverage">—</strong><span>Орташа арифметикалық жылдамдық</span></article>
+                            <article><strong id="maxwellRms">—</strong><span>Орташа квадраттық жылдамдық</span></article>
+                        </section>
+                    </section>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer class="footer">
+        <p>© 2026 MOLECULA | Білім, ғылым және зерттеу</p>
+    </footer>
+
+    <script src="js/script.js?v=ice-melting-lab-1"></script>
+</body>
+</html>

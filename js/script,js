@@ -1,0 +1,19 @@
+// Сайттың төменгі жағындағы жылды автоматты көрсету
+const footer = document.querySelector("footer p");
+
+if (footer) {
+    footer.textContent =
+        `© ${new Date().getFullYear()} MOLECULA | Физика әлемі`;
+}
+
+// Сынып батырмаларын басқанда хабарлама көрсету
+const gradeCards = document.querySelectorAll(".grade-card");
+
+gradeCards.forEach(card => {
+    card.addEventListener("click", function () {
+        const grade = this.textContent;
+        console.log(`${grade} таңдалды`);
+    });
+});
+
+console.log("MOLECULA сайты іске қосылды!");
